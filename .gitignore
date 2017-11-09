@@ -1,0 +1,19 @@
+# User-specific stuff:
+.idea/
+
+# Distribution / packaging
+.Python/
+/dist/
+*.egg-info/
+
+local_settings.py
+
+# Environments
+.venv
+
+# Project
+project/
+/manage.py
+
+__pycache__/
+/build/
