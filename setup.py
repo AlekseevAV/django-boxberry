@@ -23,7 +23,7 @@ setup(
     author_email='alekseevavx@gmail.com',
     description='Приложение для интеграции с API Boxberry',
     long_description=convert('README.md', 'rst'),
-    url='',
+    url='https://github.com/AlekseevAV/django-boxberry',
     license='MIT',
     keywords=['django', 'boxberry'],
     install_requires=[
