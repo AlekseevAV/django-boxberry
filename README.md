@@ -1,5 +1,6 @@
-# Пакет для работы с Boxberry API
+# Django-приложение для работы с Boxberry API
 
+_сделано с использованием [python клиента Boxberry](https://github.com/AlekseevAV/boxberry)_
 
 ## Установка
 
@@ -8,7 +9,7 @@
     pip install django-boxberry
 
 
-или из [github](https://github.com/AlekseevAV/django-boxberry):
+или из github:
 
     pip install git+https://github.com/AlekseevAV/django-boxberry.git
 
