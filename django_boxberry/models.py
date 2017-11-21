@@ -144,12 +144,14 @@ class Parsel(models.Model):
         verbose_name_plural = 'Посылки'
 
     def delete(self, using=None, keep_parents=False, token=None, endpoint=None):
-        bb_api = BoxberryAPI(token=token, endpoint=endpoint)
-        response = bb_api.parsel_del(self.track)
+        # Если посылка создана в ББ, то сначала пытаемся удалить ее там
+        if self.track:
+            bb_api = BoxberryAPI(token=token, endpoint=endpoint)
+            response = bb_api.parsel_del(self.track)
 
-        # Сначала убедимся, что мы удалили заказ в ББ
-        if response.status_code != 200:
-            raise Exception('Non 200 response from BB ({}): {}'.format(response.status_code, response.text))
+            # Сначала убедимся, что мы удалили заказ в ББ
+            if response.status_code != 200:
+                raise Exception('Non 200 response from BB ({}): {}'.format(response.status_code, response.text))
 
         return super(Parsel, self).delete(using=using, keep_parents=keep_parents)
 
