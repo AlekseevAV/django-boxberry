@@ -27,7 +27,7 @@ setup(
     license='MIT',
     keywords=['django', 'boxberry'],
     install_requires=[
-        'boxberry==0.1'
+        'boxberry==0.1.1'
     ],
     include_package_data=True,
     packages=find_packages(),
