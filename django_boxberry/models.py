@@ -171,6 +171,10 @@ class Parsel(models.Model):
 
         response = bb_api.list_statuses(self.track)
 
+        if isinstance(response, dict):
+            # Если статус в истории всего один, то нам приходит словарь
+            response = [response]
+
         for bb_status in response:
             status, _ = Status.objects.get_or_create(name=bb_status['Name'])
 
