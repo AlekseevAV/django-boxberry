@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 import logging
 import traceback
 
+from django.db.models import Q
 from django.core.mail import mail_managers
 from django.core.management import BaseCommand
 
@@ -22,8 +23,9 @@ class Command(BaseCommand):
         end_statuses = (7, 12)
         errors = {}
 
-        parsels_to_update = Parsel.objects.all().exclude(current_status__status_id__in=end_statuses,
-                                                         track__isnull=False, delivery_act_id__isnull=False)
+        parsels_to_update = Parsel.objects.all().exclude(Q(current_status__status_id__in=end_statuses) |
+                                                         Q(track__isnull=True) |
+                                                         Q(delivery_act_id__isnull=True))
         self.stdout.write(self.style.NOTICE('Parsels to update count: {}'.format(parsels_to_update.count())))
 
         for parsel in parsels_to_update:
