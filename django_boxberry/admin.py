@@ -1,11 +1,9 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
-from django.contrib import admin
-from django.contrib import messages
+from django.contrib import admin, messages
 from django.http import HttpResponseRedirect
 
-from .admin_filters import LastStatusLIstFilter
 from .models import DeliveryAct, Parsel, Status, StatusHistory
 
 
