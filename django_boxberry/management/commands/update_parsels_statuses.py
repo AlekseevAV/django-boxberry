@@ -26,7 +26,7 @@ class Command(BaseCommand):
                                                          track__isnull=False, delivery_act_id__isnull=False)
         self.stdout.write(self.style.NOTICE('Parsels to update count: {}'.format(parsels_to_update.count())))
 
-        for parsel in Parsel.objects.all().exclude(current_status__status_id__in=end_statuses):
+        for parsel in parsels_to_update:
             self.stdout.write(self.style.NOTICE('Updating parsel: {}'.format(parsel)))
             try:
                 parsel.update_status()
