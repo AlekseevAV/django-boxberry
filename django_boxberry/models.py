@@ -63,7 +63,7 @@ class Parsel(models.Model):
     comment = models.TextField(verbose_name='Комментарий боксберри', null=True, blank=True)
 
     # Общая информация о посылке
-    track = models.CharField(verbose_name='Трекинг код', max_length=10, null=True, blank=True,
+    track = models.CharField(verbose_name='Трекинг код', max_length=15, null=True, blank=True,
                              help_text='Если параметр будет не пустым, считается что вы хотите обновить ранее '
                                        'созданную посылку')
     order_id = models.CharField(verbose_name='Внутренний ID заказа', max_length=100, null=True, blank=True)
